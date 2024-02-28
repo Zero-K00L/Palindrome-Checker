@@ -4,31 +4,13 @@ const resultWord = document.querySelector('.result-word');
 const resultTxt = document.querySelector('.result-text');
 const input = document.getElementById('text-input').value;
 
-
-    
-
-
-checkBtn.addEventListener('click', InputToArr);
+checkBtn.addEventListener('click', checkPalindrome);
 
 
-/* function InputToArr() {
+
+function inputFiltered() {
     const input = document.getElementById('text-input').value;
-    const pattern = /[^a-zA-Z0-9]/g;
-    const inputArr = [];
-    for(let i = 0; i < input.length ; i++) {
-        if(!pattern.test(input[i])) {
-            inputArr.push(input[i]);
-        }  
-    }
-    const inputString = inputArr.join('');
-    console.log(inputString);
-    return inputString
-}
- */
-
-function InputToArr() {
-    const input = document.getElementById('text-input').value;
-    console.log("Input value:", input); // Log the input value
+    console.log("Input value:", input.length); // Log the input value
     const pattern = /[^a-zA-Z0-9]/g;
     const inputArr = [];
     for(let i = 0; i < input.length ; i++) {
@@ -37,33 +19,39 @@ function InputToArr() {
         }  
     }
     const inputString = inputArr.join('').replace('%','');
-    console.log("Filtered output:", inputString); // Log the filtered output
+    const inputString2 = inputString.replace(/\s/g, "");
+    console.log("Filtered output:", inputString2); // Log the filtered output
     return inputString;
 }
 
-
-
-function reverseString() {
-    
-
-}
-
-
-
-
-
-
-/* function checkPalindrome() {
+function reverseInputFiltered() {
     const input = document.getElementById('text-input').value;
+    console.log("Input value:", input.length); // Log the input value
     const pattern = /[^a-zA-Z0-9]/g;
-    const inputArr = [];
+    const reveredInputArr = [];
     for(let i = 0; i < input.length ; i++) {
         if(!pattern.test(input[i])) {
-            inputArr.push(input[i]);
-        }  
+            reveredInputArr.push(input[i]);
+        }   
     }
-    console.log(inputArr);
-    return inputArr;  
+    reveredInputArr.reverse();  
+    const inputStringReversed = reveredInputArr.join('').replace('%','');
+    const inputStringRevered2 = inputStringReversed.replace(/\s/g, "");
+    console.log("Filtered output:", inputStringRevered2); // Log the filtered output
+    return inputStringRevered2; 
 }
 
-checkBtn.addEventListener('click', checkPalindrome); */
+
+function checkPalindrome() {
+    normalString = inputFiltered();
+    reverseString = reverseInputFiltered();
+
+    if(normalString !== reverseString) {
+        console.log("false");
+        return false;
+    }
+    else{
+        console.log('true');
+        return true;
+    }
+}
