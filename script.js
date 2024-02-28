@@ -18,7 +18,7 @@ function inputFiltered() {
             inputArr.push(input[i]);
         }  
     }
-    const inputString = inputArr.join('').replace('%','');
+    const inputString = inputArr.join('').replace(/%/g,'');
     const inputString2 = inputString.replace(/\s/g, "");
     console.log("Filtered output:", inputString2); // Log the filtered output
     return inputString;
@@ -35,7 +35,7 @@ function reverseInputFiltered() {
         }   
     }
     reveredInputArr.reverse();  
-    const inputStringReversed = reveredInputArr.join('').replace('%','');
+    const inputStringReversed = reveredInputArr.join('').replace(/%/g,'');
     const inputStringRevered2 = inputStringReversed.replace(/\s/g, "");
     console.log("Filtered output:", inputStringRevered2); // Log the filtered output
     return inputStringRevered2; 
