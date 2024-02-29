@@ -10,19 +10,19 @@ checkBtn.addEventListener('click', checkPalindrome);
 
 function inputFiltered() {
     const input = document.getElementById('text-input').value;
-    console.log("Input value:", input.length); // Log the input value
+    console.log("Input value:", input); // Log the input value
     const pattern = /[^a-zA-Z0-9]/g;
     const inputArr = [];
-    for(let i = 0; i < input.length ; i++) {
+    for(let i = 0; i < input.length; i++) {
         if(!pattern.test(input[i])) {
             inputArr.push(input[i]);
         }  
     }
-    const inputString = inputArr.join('').replace(/%/g,'');
-    const inputStringFiltered = inputString.replace(/\s/g, "");
-    console.log("Filtered output:", inputStringFiltered); // Log the filtered output
-    return inputStringFiltered.toLowerCase();
+    const inputString = inputArr.join('').replace(/[!@#$%^&*()_+=' ']/g, '');
+    console.log("Filtered output:", inputString); // Log the filtered output
+    return inputString;
 }
+
 
 function reverseInputFiltered() {
     const input = document.getElementById('text-input').value;
@@ -35,10 +35,9 @@ function reverseInputFiltered() {
         }   
     }
     reveredInputArr.reverse();  
-    const inputStringReversed = reveredInputArr.join('').replace(/%/g,'');
-    const inputStringReveredFiltered = inputStringReversed.replace(/\s/g, "");
-    console.log("Filtered output:", inputStringReveredFiltered); // Log the filtered output
-    return inputStringReveredFiltered.toLowerCase(); 
+    const inputStringReversed = reveredInputArr.join('').replace(/[!@#$%^&*()_+=' ']/g, '');
+    console.log("Filtered output:", inputStringReversed); // Log the filtered output
+    return inputStringReversed; 
 }
 
 
@@ -56,6 +55,4 @@ function checkPalindrome() {
     }
 }
 
-function displayResult() {
-
-} 
+function displayResult() {} 
