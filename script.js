@@ -1,12 +1,10 @@
 const checkBtn = document.getElementById('check-btn');
 const result = document.getElementById('result');
 
-const input = document.getElementById('text-input').value;
 checkBtn.addEventListener('click', checkPalindrome);
 
-
-
 function inputFiltered() {
+    const input = document.getElementById('text-input').value;
     console.log("Input value:", input); // Log the input value
     const pattern = /[^a-zA-Z0-9]/g;
     const inputArr = [];
@@ -17,11 +15,12 @@ function inputFiltered() {
     }
     const inputString = inputArr.join('').replace(/[!@#$%^&*()_+=' ']/g, '');
     console.log("Filtered output:", inputString); // Log the filtered output
-    return inputString;
+    return inputString.toLowerCase();
 }
 
 
 function reverseInputFiltered() {
+    const input = document.getElementById('text-input').value;
     console.log("Input value:", input.length); // Log the input value
     const pattern = /[^a-zA-Z0-9]/g;
     const reveredInputArr = [];
@@ -33,35 +32,23 @@ function reverseInputFiltered() {
     reveredInputArr.reverse();  
     const inputStringReversed = reveredInputArr.join('').replace(/[!@#$%^&*()_+=' ']/g, '');
     console.log("Filtered output:", inputStringReversed); // Log the filtered output
-    return inputStringReversed; 
+    return inputStringReversed.toLowerCase(); 
 }
 
 
-
-
-function displayResult() {
-    const resultWord = document.querySelector('.result-word');
-    const resultTxt = document.querySelector('.result-text');
-    resultWord.innerText = input;
-    if(checkPalindrome()) {
-        return resultTxt = " is a palindrome."
-    } else {
-        return resultTxt = " is not a palindrome."
-    }
-} 
-
-
 function checkPalindrome() {
+    const input = document.getElementById('text-input').value;
     normalString = inputFiltered();
     reverseString = reverseInputFiltered();
 
     if(normalString !== reverseString) {
         console.log("false");
+        result.innerHTML = `<strong>${input}</strong> is a not palindrome`;
         return false;
     }
     else{
         console.log('true');
+        result.innerHTML = `<strong>${input}</strong> is a palindrome`;
         return true;
     }
-    displayResult();
 }
