@@ -19,9 +19,9 @@ function inputFiltered() {
         }  
     }
     const inputString = inputArr.join('').replace(/%/g,'');
-    const inputString2 = inputString.replace(/\s/g, "");
-    console.log("Filtered output:", inputString2); // Log the filtered output
-    return inputString;
+    const inputStringFiltered = inputString.replace(/\s/g, "");
+    console.log("Filtered output:", inputStringFiltered); // Log the filtered output
+    return inputStringFiltered.toLowerCase();
 }
 
 function reverseInputFiltered() {
@@ -36,9 +36,9 @@ function reverseInputFiltered() {
     }
     reveredInputArr.reverse();  
     const inputStringReversed = reveredInputArr.join('').replace(/%/g,'');
-    const inputStringRevered2 = inputStringReversed.replace(/\s/g, "");
-    console.log("Filtered output:", inputStringRevered2); // Log the filtered output
-    return inputStringRevered2; 
+    const inputStringReveredFiltered = inputStringReversed.replace(/\s/g, "");
+    console.log("Filtered output:", inputStringReveredFiltered); // Log the filtered output
+    return inputStringReveredFiltered.toLowerCase(); 
 }
 
 
@@ -55,3 +55,7 @@ function checkPalindrome() {
         return true;
     }
 }
+
+function displayResult() {
+
+} 
