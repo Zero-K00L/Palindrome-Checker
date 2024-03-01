@@ -6,6 +6,7 @@
     --button: #5A01A7;
     --border: #022793;
     --descrip: #00471B;
+    --buttonShadow: rgb(54, 51, 51);
 }
 
 html {
@@ -40,9 +41,6 @@ body {
     text-align: center;
 }
 
-.title {
-    
-}
 
 .app-container {
     width: 100%;
@@ -78,6 +76,14 @@ body {
     background-color: var(--button);
     color: var(--text);
     margin-top: 11px;
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+    box-shadow: 0px 1px 3px var(--buttonShadow);
+}
+
+#check-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px var(--buttonShadow);
 }
 
 #result {
@@ -96,6 +102,4 @@ body {
     font-size: 25px;
     background-color: var(--descrip);
     border-radius: 15px;
-    
-
 }
